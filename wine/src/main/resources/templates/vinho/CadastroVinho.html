@@ -29,37 +29,28 @@
 		<form method="get" class="form-vertical  js-form-loading">
 			
 			<div class="form-group">
-				<label for="input-produto-nome">Nome</label>
-				<input id="input-produto-nome" type="text" class="form-control"/>
+				<label for="nome">Nome</label>
+				<input id="nome" type="text" class="form-control"/>
 			</div>
-	
-			<div class="form-group">
-				<label for="input-produto-descricao">Descrição</label>
-				<textarea id="input-produto-descricao" rows="3" class="form-control"></textarea>
-			</div>
-	
 			<div class="row">
-				<div class="col-sm-3">
-					<div class="form-group">
-						<label for="input-produto-preco">Preço unitário</label>
-						<input id="input-produto-preco" type="text" class="form-control" placeholder="R$"/>
-					</div>
+				<div class="col-sm-6 form-group">
+					<label for="tipo" class="control-label">Tipo</label>
+					<select id="tipo" class="form-control">
+						<option value="">Selecione</option>
+					</select>
 				</div>
-				
-				<div class="col-sm-3">
-					<div class="form-group">
-						<label for="input-produto-estoque">Estoque</label>
-						<input id="input-produto-estoque" type="text" class="form-control" placeholder="Unidades"/>
-					</div>
+				<div class="col-sm-6 form-group">
+					<label for="safra" class="control-lavel">Safra</label>
+					<input id="safra" class="form-group"/>
 				</div>
 			</div>
 			
-			<div class="form-group">
-				<button class="btn  btn-primary" type="submit">Salvar</button>
-				<a href="#" class="btn  btn-default">Cancelar</a>
-				<a href="#" class="btn  btn-link  aw-btn-link-danger">Excluir este produto</a>
+			<div class="row">
+				<div class="col-sm-6 form-group">
+					<label for="volume" class="control-label">Volume (ml)</label>
+					<input id="volume" class="form-group"/>
+				</div>		
 			</div>
-	
 		</form>
 	</div>
 
