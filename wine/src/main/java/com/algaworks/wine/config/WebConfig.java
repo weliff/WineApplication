@@ -4,6 +4,8 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomi
 import org.springframework.boot.context.embedded.ErrorPage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.repository.support.DomainClassConverter;
+import org.springframework.format.support.FormattingConversionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -14,6 +16,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	public EmbeddedServletContainerCustomizer containerCustomizer() {
 		return (container ->
 		container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/404")));
+	}
+	
+	public DomainClassConverter<FormattingConversionService> domainClassConverter(FormattingConversionService conversionService) {
+		return new DomainClassConverter<FormattingConversionService>(conversionService);
 	}
 	
 }
