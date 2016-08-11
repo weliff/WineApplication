@@ -9,9 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
+
+import com.algaworks.wine.dto.FotoDTO;
 
 @Entity
 @Table(name="vinho")
@@ -36,6 +39,11 @@ public class Vinho {
 	
 	@NotNull(message = "Valor é obigatório")
 	private BigDecimal valor;
+
+	private String foto;
+	
+	@Transient
+	private FotoDTO fotoDTO;
 	
 	public Long getCodigo() {
 		return codigo;
@@ -95,6 +103,21 @@ public class Vinho {
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
+	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	public FotoDTO getFotoDTO() {
+		return fotoDTO;
+	}
+	public void setFotoDTO(FotoDTO fotoDTO) {
+		this.fotoDTO = fotoDTO;
+	}
+	public boolean hasFoto() {
+		return foto != null && !foto.isEmpty();
 	}
 }
 	
