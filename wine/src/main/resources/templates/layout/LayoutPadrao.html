@@ -23,7 +23,8 @@
 	<![endif]-->
 </head>
 <body>
-
+<input type="hidden" name="_csrf_header" th:value="${_csrf.headerName}"/>
+<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
 <div class="aw-layout-page">
 	
 	<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar">
@@ -68,7 +69,7 @@
 	            <div class="aw-logged-user">
 	              <img src="https://api.adorable.io/avatars/80/joaodascouves" 
 	                width="80" height="80" alt="João das Couves" class="aw-logged-user__picture" />
-	              <span class="aw-logged-user__name">João das Couves</span>
+	              <span class="aw-logged-user__name" th:text="${#authentication.name}">João das Couves</span>
 	            </div>
 	          </li>
 	          <li role="separator" class="divider"></li>
@@ -79,7 +80,7 @@
 	      </li>
 	      
 	      <li>
-	        <a href="#"><em class="fa  fa-sign-out"></em></a>
+	        <a th:href="@{/logout}"><em class="fa  fa-sign-out"></em></a>
 	      </li> 
 	    </ul>
 
@@ -98,7 +99,7 @@
           			</a>
 	        		</li>
 	        		
-	        		<li class="aw-menu__item">
+	        		<li class="aw-menu__item" sec:authorize-url="/vinhos">
           			<a th:href="@{/vinhos}">
           				<i class="fa  fa-fw  fa-search"></i>
           				<span>Listagem de vinhos</span>
