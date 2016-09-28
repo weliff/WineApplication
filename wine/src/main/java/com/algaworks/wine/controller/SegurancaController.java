@@ -1,7 +1,8 @@
 package com.algaworks.wine.controller;
 
+import java.security.Principal;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
  
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SegurancaController {
 	
 	@RequestMapping("/login")
-	public String login(@AuthenticationPrincipal User user) {
+	public String login(@AuthenticationPrincipal Principal user) {
 		if (user != null) {
 			return "redirect:/vinhos/novo";
 		}

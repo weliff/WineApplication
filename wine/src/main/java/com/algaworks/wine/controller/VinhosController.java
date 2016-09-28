@@ -32,14 +32,14 @@ public class VinhosController {
 	
 	@RequestMapping
 	public ModelAndView pesquisa() {
-		ModelAndView mv = new ModelAndView("/vinho/ListagemVinhos");
+		ModelAndView mv = new ModelAndView("vinho/ListagemVinhos");
 		mv.addObject("vinhos", vinhos.findAll());
 		return mv;
 	}
 	
 	@RequestMapping("/novo")
 	public ModelAndView novo(Vinho vinho) {
-		ModelAndView mv = new ModelAndView("/vinho/CadastroVinho");
+		ModelAndView mv = new ModelAndView("vinho/CadastroVinho");
 		mv.addObject("tipos", TipoVinho.values());
 		return mv;
 	}
@@ -60,7 +60,7 @@ public class VinhosController {
 		if (vinho.hasFoto()){
 			vinho.setFotoDTO(new FotoDTO(fotoStorage.getURL(vinho.getFoto())));
 		}
-		ModelAndView mv = new ModelAndView("/vinho/VisualizacaoVinho");
+		ModelAndView mv = new ModelAndView("vinho/VisualizacaoVinho");
 		mv.addObject("vinho", vinho);
 		return mv;
 	}
